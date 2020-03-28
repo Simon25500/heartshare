@@ -13,7 +13,6 @@
     "password-generator": "^2.2.3"
   },
   "scripts": {
-    "heroku-postbuild": "cd client && yarn && yarn run build",
     "start": "node server.js"
   }
 }
