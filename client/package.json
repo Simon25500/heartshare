@@ -16,8 +16,8 @@
     "build": "npm run build:css && react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "build:css": "postcss src/assets/stylesheets/tailwind.css", 
-    "watch:css": "postcss src/assets/stylesheets/tailwind.css"
+    "build:css": "postcss src/assets/stylesheets/tailwind.css -o src/assets/stylesheets/application.scss", 
+    "watch:css": "postcss src/assets/stylesheets/tailwind.css -o src/assets/stylesheets/application.scss"
   },
   "proxy": "http://localhost:3001",
   "eslintConfig": {

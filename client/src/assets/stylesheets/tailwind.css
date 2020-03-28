@@ -1,5 +1,13 @@
+/* import tailwind */
+
 @tailwind base;
-
 @tailwind components;
-
 @tailwind utilities;
+
+/* import font  */
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap');
+
+
+/* import other file */
+
+@import './home.css'
