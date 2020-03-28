@@ -1,6 +1,9 @@
 {
   "name": "heartshare",
   "version": "1.0.0",
+  "engines": {
+    "node": "10.19.0"
+  },
   "main": "server.js",
   "repository": "git@github.com:Simon25500/heartshare.git",
   "author": "Simon <simon.chardon@yahoo.fr>",
