@@ -1,0 +1,15 @@
+{
+  "name": "heartshare",
+  "version": "1.0.0",
+  "main": "server.js",
+  "repository": "git@github.com:Simon25500/heartshare.git",
+  "author": "Simon <simon.chardon@yahoo.fr>",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.17.1",
+    "password-generator": "^2.2.3"
+  },
+  "scripts": {
+    "start": "node server.js"
+  }
+}
