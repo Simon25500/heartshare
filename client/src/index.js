@@ -1,14 +1,28 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import * as serviceWorker from './serviceWorker';
+import { Provider } from 'react-redux';
+import { createStore,combineReducers } from 'redux';
+
+//import style
 import './assets/stylesheets/application.scss';
 
 //import component
 import Home from './components/home'
 
 
+const reducers = combineReducers({
+
+});
+
+
+
+
+
 ReactDOM.render(
-    <Home />,
+  <Provider store={createStore(reducers)} >
+    <Home />
+  </Provider>,
   document.getElementById('root')
 );
 

@@ -1,8 +1,8 @@
 .home{
-    background-image:  url('../images/background.png');
+    background:  url('../images/background.png') fixed;
     background-repeat:no-repeat;
-    -webkit-background-size: 100% 100%;
-    -moz-background-size: 100% 100%;
-    -o-background-size: 100% 100%;
-    background-size: 100% 100% ;
+    -webkit-background-size: 100vw 100vh;
+    -moz-background-size: 100vw 100vh;
+    -o-background-size: 100vw 100vh;
+    background-size: 100vw 100vh ;
 }
