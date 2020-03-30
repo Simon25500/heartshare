@@ -16,62 +16,8 @@ class Body extends Component {
                     <div className="actu mt-10 w-64 h-64">
                     </div>
                 </div>
-                <div className="body bg-gray-500 flex-grow md:ml-10 flex flex-col">
-                    <div className="w-full flex-grow overflow-y-scroll h-64" id="scroll">
-                        <div className="flex border-solid border-b border-gray-600 ">
-                            <div className="w-24 h-24 bg-gray-700"></div>
-                            <div>
-                                <p className="text-xs">coucou</p>
-                            </div>
-                        </div>
-                        <div className="flex border-solid border-b border-gray-600 ">
-                            <div className="w-24 h-24 bg-gray-700"></div>
-                            <div>
-                                <p className="text-xs">coucou</p>
-                            </div>
-                        </div>
-                        <div className="flex border-solid border-b border-gray-600 ">
-                            <div className="w-24 h-24 bg-gray-700"></div>
-                            <div>
-                                <p className="text-xs">coucou</p>
-                            </div>
-                        </div>
-                        <div className="flex border-solid border-b border-gray-600 ">
-                            <div className="w-24 h-24 bg-gray-700"></div>
-                            <div>
-                                <p className="text-xs">coucou</p>
-                            </div>
-                        </div>
-                        <div className="flex border-solid border-b border-gray-600 ">
-                            <div className="w-24 h-24 bg-gray-700"></div>
-                            <div>
-                                <p className="text-xs">coucou</p>
-                            </div>
-                        </div>
-                        <div className="flex border-solid border-b border-gray-600 ">
-                            <div className="w-24 h-24 bg-gray-700"></div>
-                            <div>
-                                <p className="text-xs">coucou</p>
-                            </div>
-                        </div>
-                        <div className="flex border-solid border-b border-gray-600 ">
-                            <div className="w-24 h-24 bg-gray-700"></div>
-                            <div>
-                                <p className="text-xs">coucou</p>
-                            </div>
-                        </div>
-                        <div className="flex border-solid border-b border-gray-600 ">
-                            <div className="w-24 h-24 bg-gray-700"></div>
-                            <div>
-                                <p className="text-xs">coucou</p>
-                            </div>
-                        </div>
-                        <div className="flex border-solid border-b border-gray-600 ">
-                            <div className="w-24 h-24 bg-gray-700"></div>
-                            <div>
-                                <p className="text-xs">coucou</p>
-                            </div>
-                        </div>
+                <div className="body  flex-grow md:ml-10 flex flex-col">
+                    <div className="w-full bg-gray-400 flex-grow overflow-y-scroll h-64" id="scroll">
                         <div className="flex border-solid border-b border-gray-600 ">
                             <div className="w-24 h-24 bg-gray-700"></div>
                             <div>
@@ -79,7 +25,7 @@ class Body extends Component {
                             </div>
                         </div>
                     </div>
-                    <div className="w-full  h-64 lg:hidden">
+                    <div className="w-full mt-10 h-64 lg:hidden">
                         <Map />
                     </div>
                 </div>
