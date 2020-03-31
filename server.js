@@ -1,34 +1,50 @@
-const express = require('express');
-const path = require('path');
-const generatePassword = require('password-generator');
+const http = require('http');
+const app = require('./app');
 
-const app = express();
+const normalizePort = val => {
+  const port = parseInt(val, 10);
 
-// Serve static files from the React app
-app.use(express.static(path.join(__dirname, 'client/build')));
+  if (isNaN(port)) {
+    return val;
+  }
+  if (port >= 0) {
+    return port;
+  }
+  return false;
+};
+const port = normalizePort(process.env.PORT || '5000');
+app.set('port', port);
 
-// Put all API endpoints under '/api'
-app.get('/api/passwords', (req, res) => {
-  const count = 5;
+const errorHandler = error => {
+  if (error.syscall !== 'listen') {
+    throw error;
+  }
+  const address = server.address();
+  const bind = typeof address === 'string' ? 'pipe ' + address : 'port: ' + port;
+  switch (error.code) {
+    case 'EACCES':
+      console.error(bind + ' requires elevated privileges.');
+      process.exit(1);
+      break;
+    case 'EADDRINUSE':
+      console.error(bind + ' is already in use.');
+      process.exit(1);
+      break;
+    default:
+      throw error;
+  }
+};
 
-  // Generate some passwords
-  const passwords = Array.from(Array(count).keys()).map(i =>
-    generatePassword(12, false)
-  )
+const server = http.createServer(app);
 
-  // Return them as json
-  res.json(passwords);
-
-  console.log(`Sent ${count} passwords`);
+server.on('error', errorHandler);
+server.on('listening', () => {
+  const address = server.address();
+  const bind = typeof address === 'string' ? 'pipe ' + address : 'port ' + port;
+  console.log('Listening on ' + bind);
 });
 
-// The "catchall" handler: for any request that doesn't
-// match one above, send back React's index.html file.
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname+'/client/build/index.html'));
-});
+server.listen(port);
 
-const port = process.env.PORT || 5000;
-app.listen(port);
 
-console.log(`Password generator listening on ${port}`);
+
