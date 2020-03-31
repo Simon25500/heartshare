@@ -16,6 +16,8 @@ import './assets/stylesheets/application.scss';
 //import component
 import Home from './components/home'
 import HomePage from './components/home-page'
+import FormInscription from './containers/form-inscription'
+import FormConnect from './containers/form-connect'
 
 const reducers = combineReducers({
 
@@ -31,6 +33,8 @@ ReactDOM.render(
     <Switch>
       <Route path="/" exact component={Home} />
       <Route path="/home" exact component={HomePage} />
+      <Route path="/connexion" exact component={FormConnect} />
+      <Route path="/inscription" exact component={FormInscription} />
     </Switch>
     </Router>
   </Provider>,
