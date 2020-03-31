@@ -64,3 +64,9 @@ body{
     background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.1)), url(../images/actu.jpg);
     background-size: 100% 100%;
 }
+
+.profilemenu {
+    width: 200px;
+    top: 60px;
+    right: 0px;
+}
