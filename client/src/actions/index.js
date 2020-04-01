@@ -14,6 +14,7 @@ export function inscription(body, callback) {
 }
 
 export function connexion(body, callback) {
+    console.log(body)
     const request = fetch(`/api/auth/login`, {
         method:'POST',
         headers: { "Content-Type": "application/json" },
