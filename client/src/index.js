@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useReducer } from 'react';
 import ReactDOM from 'react-dom';
 import * as serviceWorker from './serviceWorker';
 import { Provider } from 'react-redux';
@@ -7,7 +7,6 @@ import { logger } from 'redux-logger'
 import reduxPromise from 'redux-promise';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { createHistory as history } from 'history';
-
 
 
 //import style
@@ -19,8 +18,14 @@ import HomePage from './components/home-page'
 import FormInscription from './containers/form-inscription'
 import FormConnect from './containers/form-connect'
 
-const reducers = combineReducers({
 
+//import reducer
+import { reducer as formReducer } from 'redux-form';
+import userReducer from './reducers/user'
+
+const reducers = combineReducers({
+  form: formReducer,
+  user: userReducer
 });
 
 

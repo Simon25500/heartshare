@@ -10,7 +10,14 @@ exports.signup = (req, res, next) => {
           password: hash
         });
         user.save()
-          .then(() => res.status(201).json({ message: 'Utilisateur créé !' }))
+          .then(() => res.status(201).json({
+            userId: user._id,
+            token: jwt.sign(
+              { userId: user._id },
+              'RANDOM_TOKEN_SECRET',
+              { expiresIn: '24h' }
+            )
+             }))
           .catch(error => res.status(400).json({ error }));
       })
       .catch(error => res.status(500).json({ error }));
@@ -39,4 +46,24 @@ exports.signup = (req, res, next) => {
           .catch(error => res.status(500).json({ error }));
       })
       .catch(error => res.status(500).json({ error }));
+  };
+
+
+  exports.islog = (req, res, next) => {
+    try {
+      const token = req.headers.authorization.split(' ')[1];
+      const decodedToken = jwt.verify(token, 'RANDOM_TOKEN_SECRET');
+      const userId = decodedToken.userId;
+      if (req.body.userId && req.body.userId !== userId) {
+        throw 'Invalid user ID';
+      } else {
+        res.status(200).json({
+          userId: userId
+        })
+      }
+    } catch {
+      res.status(401).json({
+        error: new Error('Invalid request!')
+      });
+    }
   };
