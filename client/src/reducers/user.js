@@ -1,10 +1,8 @@
-const userReducer = (state, action) => {
-    if (state === undefined) {
-        return {};
-    }
+const userReducer = (state = null, action) => {
 
+    
     switch (action.type) {
-        case 'CHECK_USER':
+        case 'USER_SET':
             return action.payload;
         default:
             return state;

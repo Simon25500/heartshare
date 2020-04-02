@@ -1,8 +1,19 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+import { isLog } from "../actions";
+
 
 class ProfileMenu extends Component {
+
+    componentWillMount() {
+        this.props.isLog()
+    }
+
+
     render() {
+        if (this.props.user === null || this.props.user.userId === null){
         return (
             <div className="profilemenu absolute bg-gray-400">
                 <Link to="/connexion">
@@ -17,7 +28,26 @@ class ProfileMenu extends Component {
                 </Link>
             </div>
         );
+        } else {
+            console.log(this.props.user)
+            return(
+                <div> coucou</div>
+            );
+        }
     }
 }
 
-export default ProfileMenu;
+const mapDispatchToProps = (dispatch) => {
+    return bindActionCreators(
+        {isLog: isLog},
+        dispatch
+    )
+}
+
+const mapStateToProps = (state) => {
+    return {
+        user: state.user
+    }
+}
+
+export default connect(mapStateToProps,mapDispatchToProps)(ProfileMenu);

@@ -58,12 +58,13 @@ exports.signup = (req, res, next) => {
         throw 'Invalid user ID';
       } else {
         res.status(200).json({
-          userId: userId
+          userId: userId,
+          token: token
         })
       }
     } catch {
       res.status(401).json({
-        error: new Error('Invalid request!')
+        userId: null
       });
     }
   };

@@ -35,12 +35,12 @@ const middleware = applyMiddleware(reduxPromise, logger);
 ReactDOM.render(
   <Provider store={createStore(reducers, {}, middleware)} >
     <Router history={history}>
-    <Switch>
-      <Route path="/" exact component={Home} />
-      <Route path="/home" exact component={HomePage} />
-      <Route path="/connexion" exact component={FormConnect} />
-      <Route path="/inscription" exact component={FormInscription} />
-    </Switch>
+      <Switch>
+        <Route path="/" exact component={Home} />
+        <Route path="/home" exact component={HomePage} />
+        <Route path="/connexion" exact component={FormConnect} />
+        <Route path="/inscription" exact component={FormInscription} />
+      </Switch>
     </Router>
   </Provider>,
   document.getElementById('root')
