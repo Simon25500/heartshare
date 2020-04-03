@@ -14,7 +14,7 @@ class Body extends Component {
                     <div className="actu mt-10 w-64 h-64">
                     </div>
                 </div>
-                <div className="body  flex-grow md:ml-10 flex flex-col lg:flex-row">
+                <div className="body flex-grow md:ml-10 flex flex-col lg:flex-row">
                     <CardList />
                     <div className="w-full mt-10 h-64 lg:mt-0 lg:ml-10 lg:h-full">
                         <Map />

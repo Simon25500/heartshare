@@ -11,17 +11,28 @@ class CardList extends Component {
     }
 
     render() {
-        return (
-            <div className="w-full bg-gray-400 flex-grow overflow-y-scroll h-64 lg:h-full" id="scroll">
-                {this.props.cards.map(card => <Card key={card._id}
-                name={card.name}
-                img={card.association.img_url}
-                start={card.start}
-                stop={card.stop}
-                city={card.locationCity}
-                place={card.location} />)}
-            </div>            
-        );
+
+        if(Array.isArray(this.props.cards)) {
+
+            return (
+                <div className="cardlist w-full bg-gray-400 flex-grow overflow-y-scroll h-64" id="scroll">
+                    {this.props.cards.map(card => <Card key={card._id}
+                    name={card.name}
+                    img={card.association.img_url}
+                    start={card.start}
+                    stop={card.stop}
+                    city={card.locationCity}
+                    place={card.location}
+                    card={card} />)}
+                </div>            
+            );
+        } else {
+            return (
+                <div className="cardlist w-full bg-gray-400 flex-grow overflow-y-scroll h-64 lg:h-128" id="scroll">
+                 <p>coucou</p>
+                </div>            
+            );
+        }
     }
 }
 

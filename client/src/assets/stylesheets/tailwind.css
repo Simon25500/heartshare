@@ -9,4 +9,5 @@
 
 
 /* import other file */
-@import './home.css'
+@import './home.css';
+@import './marker.css';

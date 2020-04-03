@@ -1,7 +1,16 @@
 import React, { Component } from 'react';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+import { cardActive } from '../actions'
 
 class Card extends Component {
     
+
+    onClick = () => {
+        this.props.cardActive(this.props.card)
+    }
+
+
     render(){
         const style = {backgroundImage: `url(${this.props.img})`}
         const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
@@ -9,7 +18,7 @@ class Card extends Component {
         const starttimes = `${new Date(this.props.start).toLocaleTimeString('fr',{ hour: '2-digit', minute: '2-digit' })}`;
         const stop = `${new Date(this.props.stop).toLocaleTimeString('fr',{ hour: '2-digit', minute: '2-digit' })}`;
         return(
-            <div className="flex border-solid border-b border-gray-600" >
+            <div onClick={this.onClick}  className="cursor-pointer flex border-solid border-b border-gray-600" >
                 <div className="w-24 h-24 bg-gray-700 bg-cover bg-center" style={style}></div>
                 <div className="p-2 flex justify-between w-full">
                     <div className="flex flex-col justify-between h-full">
@@ -26,4 +35,12 @@ class Card extends Component {
     }
 }
 
-export default Card;
+const mapDispatchToProps = (dispatch) => {
+    return bindActionCreators(
+        {cardActive: cardActive},
+        dispatch
+    )
+}
+     
+    
+export default connect(null,mapDispatchToProps)(Card);

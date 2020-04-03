@@ -56,3 +56,10 @@ export const cardSet = () => {
         payload: request
     };
 }
+
+export const cardActive = (card) => {
+    return {
+        type: 'CARD_SET',
+        payload: card
+    };
+}

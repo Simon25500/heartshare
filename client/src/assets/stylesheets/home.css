@@ -70,3 +70,11 @@ body{
     top: 60px;
     right: 0px;
 }
+
+@media (min-width: 1024px) {
+
+    .cardlist{
+        height: 552px;
+    }
+}
+
