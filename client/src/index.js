@@ -1,4 +1,4 @@
-import React, { useReducer } from 'react';
+import React  from 'react';
 import ReactDOM from 'react-dom';
 import * as serviceWorker from './serviceWorker';
 import { Provider } from 'react-redux';
@@ -22,10 +22,12 @@ import FormConnect from './containers/form-connect'
 //import reducer
 import { reducer as formReducer } from 'redux-form';
 import userReducer from './reducers/user'
+import cardReducer from './reducers/card'
 
 const reducers = combineReducers({
   form: formReducer,
-  user: userReducer
+  user: userReducer,
+  cards: cardReducer
 });
 
 

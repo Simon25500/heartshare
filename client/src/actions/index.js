@@ -1,5 +1,5 @@
 export function inscription(body, callback) {
-    const request = fetch(`/api/auth/signup`, {
+    fetch(`/api/auth/signup`, {
         method:'POST',
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(body)
@@ -15,7 +15,7 @@ export function inscription(body, callback) {
 }
 
 export function connexion(body, callback) {
-    const request = fetch(`/api/auth/login`, {
+    fetch(`/api/auth/login`, {
         method:'POST',
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(body)
@@ -42,4 +42,17 @@ export const isLog =  () => {
             type: 'USER_SET', // Not used by reducer (we navigate)
             payload: request
             };
+}
+
+export const cardSet = () => {
+    const request = fetch('/api/event/index', {
+        method: 'GET',
+        headers: {"Content-Type": "application/json"}
+    }).then(reponse => reponse.json())
+    .catch(err => err.json())
+
+    return {
+        type: 'CARD_SET',
+        payload: request
+    };
 }

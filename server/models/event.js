@@ -3,9 +3,12 @@ const mongoose = require('mongoose');
 
 const eventSchema = mongoose.Schema({
   name: { type: String, required: true },
-  locationName: { type: String },
+  location: { type: String },
+  locationCity: { type: String },
   lat: { type: Number },
   lng: { type: Number },
+  start: { type: Date },
+  stop: { type: Date },
   association:  {type: mongoose.Schema.Types.ObjectId, ref: 'Association'} 
 
 });
