@@ -22,7 +22,7 @@ class Map extends Component {
                 <GoogleMapReact
           bootstrapURLKeys={{ key: "AIzaSyBbjMtABvfaw7Cq_un0llwAg8derao9yUk" }}
           defaultCenter={this.props.center}
-          defaultZoom={this.props.zoom}
+          zoom={this.props.zoom}
         >
           
           {this.props.cards.map(card => <Marker
@@ -30,7 +30,7 @@ class Map extends Component {
             lat={card.lat}
             lng={card.lng}
             card={card}
-            name="My Marker"
+            name={card.name}
             color="red"
           />)}
             
@@ -43,15 +43,18 @@ class Map extends Component {
           <div   className=" bg-gray-900 h-full" >
               <GoogleMapReact
         bootstrapURLKeys={{ key: "AIzaSyBbjMtABvfaw7Cq_un0llwAg8derao9yUk" }}
-        defaultCenter={this.props.center}
-        defaultZoom={this.props.zoom}
+        center={{
+          lat: this.props.cards.lat,
+          lng: this.props.cards.lng
+        }}
+        zoom={15}
       >
         
         <Marker
           lat={this.props.cards.lat}
           lng={this.props.cards.lng}
           card={this.props.cards}
-          name="My Marker"
+          name={this.props.cards.name}
           color="red"
         />
           
