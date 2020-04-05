@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import logo_home from '../assets/images/logo_home.svg'
 import Profile from './profile'
 import AlgoliaPlaces from 'algolia-places-react';
-import { setNear } from '../actions'
+import { setNear,cardSet } from '../actions'
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import '../assets/stylesheets/search.css'
@@ -20,6 +20,7 @@ class Header extends Component {
     onClick = (position) => {
       this.props.setNear(position);
   }
+
 
     style = "shadow appearance-none border rounded-full w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
 
@@ -52,8 +53,7 @@ class Header extends Component {
       onCursorChanged={({ rawAnswer, query, suggestion, suggestonIndex }) => 
         console.log('Fired when arrows keys are used to navigate suggestions.')}
  
-      onClear={() => 
-        console.log('Fired when the input is cleared.')}
+      onClear={() => this.props.cardSet()}
  
       onLimit={({ message }) => 
         console.log('Fired when you reached your current rate limit.')}
@@ -70,7 +70,8 @@ class Header extends Component {
 
 const mapDispatchToProps = (dispatch) => {
   return bindActionCreators(
-    {setNear: setNear},
+    {setNear: setNear,
+    cardSet: cardSet},
     dispatch
   )
 }

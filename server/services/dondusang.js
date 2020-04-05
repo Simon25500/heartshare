@@ -13,25 +13,26 @@ exports.update = () => {
     });
 
 
-    fetch('http://api.openeventdatabase.org/event?when=NEXTMONTH&what=health.blood.collect' , {
+    fetch('https://api.efs.sante.fr/carto-api/v2/SamplingCollection/SearchInSquare?NorthEastLatitude=56&NorthEastLongitude=13&SouthWestLatitude=36&SouthWestLongitude=-13&MaxDate=05%2F05%2F2020&Limit=100000&UserLatitude=0&UserLongitude=0' , {
         method: 'GET',
         headers: { "Content-Type": "application/json" }
     }).then(response => response.json())
     .then(data => {
-        data.features.forEach(element => {         
-            const event = new Event({ 
-                location: element.properties.name,
-                locationCity: element.properties["where:name"] ,
-                name: 'Collecte don du sang',
-                lat: element.properties.lat,
-                lng: element.properties.lon,
-                start: new Date(element.properties.start.slice(0,19)),
-                stop: new Date(element.properties.stop.slice(0,19)),
-                association: association._id
+        data.forEach(elements => {         
+            elements.collections.forEach(element => {
+                const event = new Event({ 
+                    location: elements.fullAddress,
+                    name: 'Collecte don du sang',
+                    lat: elements.latitude,
+                    lng: elements.longitude,
+                    date: new Date(element.date),
+                    start: (element.morningStartTime === null ? element.afternoonStartTime: element.morningStartTime),
+                    stop:  (element.morningEndTime === null ? element.afternoonEndTime: element.morningEndTime),
+                    association: association._id
+                });
+                event.save()
+                association.events.push(event._id)
             });
-            event.save()
-            association.events.push(event._id)
-            
         });
         association.save()
     })

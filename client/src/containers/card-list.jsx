@@ -19,6 +19,7 @@ class CardList extends Component {
                     {this.props.cards.map(card => <Card key={card._id}
                     name={card.name}
                     img={card.association.img_url}
+                    date={card.date}
                     start={card.start}
                     stop={card.stop}
                     city={card.locationCity}
@@ -29,20 +30,19 @@ class CardList extends Component {
         } else {
             const style = {backgroundImage: `url(${this.props.cards.association.img_url})`}
             const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
-            const start = `${new Date(this.props.cards.start).toLocaleDateString('fr',options)}`;
-            const starttimes = `${new Date(this.props.cards.start).toLocaleTimeString('fr',{ hour: '2-digit', minute: '2-digit' })}`;
-            const stop = `${new Date(this.props.cards.stop).toLocaleTimeString('fr',{ hour: '2-digit', minute: '2-digit' })}`;
+            const date = new Date(this.props.cards.date).toLocaleDateString('fr',options)
+            const start = (this.props.cards.start === null ? "Non indiqué ":this.props.cards.start.slice(0,5))
+            const stop = (this.props.cards.stop === null ? "Non indiqué ":this.props.cards.stop.slice(0,5))
             return (
                 <div className="flex flex-col justify-between cardlist w-full bg-gray-400 flex-grow overflow-y-scroll h-64 lg:h-128 lg:p-10" id="scroll">
                     <h3 className="text-lg font-bold text-center ">Evenement</h3>
                     <div className="px-5 flex justify-between lg:mt-10">
                         <div>
                             <p className="text-md font-bold">{this.props.cards.name}</p>
-                            <p className="text-sm">{start} de {starttimes} à {stop} </p>
+                            <p className="text-sm">{date} de {start} à {stop} </p>
                         </div>
-                        <div>
+                        <div className="w-56">
                             <p>{this.props.cards.location}</p>
-                            <p>{this.props.cards.locationCity}</p>
                         </div>
                     </div>
                     <div className="flex lg:flex-grow lg:flex-col lg:items-center lg:justify-around ">
