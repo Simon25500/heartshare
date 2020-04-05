@@ -5,7 +5,9 @@ import { cardActive } from '../actions'
 
 class Card extends Component {
     
-
+    onClick = () => {
+        this.props.cardActive(this.props.card)
+    }
     
 
 
