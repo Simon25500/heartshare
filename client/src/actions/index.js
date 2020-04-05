@@ -30,7 +30,7 @@ export function connexion(body, callback) {
 }
 
 export const isLog =  () => {
-    let request = fetch(`/api/auth/islog`, {
+    const request = fetch(`/api/auth/islog`, {
         method:'GET',
         headers: { 
             "Content-Type": "application/json",
@@ -62,4 +62,18 @@ export const cardActive = (card) => {
         type: 'CARD_SET',
         payload: card
     };
+}
+
+export const setNear = (position) => {
+    const request = fetch('/api/event/near', {
+        method: 'POST',
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify(position)
+    }).then(reponse => reponse.json())
+    .catch(err => err.json)
+    console.log(position)
+    return {
+        type: 'CARD_SET',
+        payload:request
+    }
 }

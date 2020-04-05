@@ -8,7 +8,7 @@ class NavBar extends Component {
             <div className="flex justify-between mx-8 ">
                 <NavChoice name="Près de chez vous"/>
                 <NavChoice name="Category"/>
-                <NavChoice name="Toute les associations"/>
+                <NavChoice name="Tout les évenement"/>
             </div>
         );
     }

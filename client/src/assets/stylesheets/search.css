@@ -1,0 +1,19 @@
+.ap-input-icon.ap-icon-pin{
+    display: none;
+}
+
+.ap-suggestion-icon{
+    display: none;
+}
+
+.ap-dropdown-menu .ap-footer{
+    display: none;
+}
+
+.ap-dropdown-menu{
+    border-radius: 20px;
+}
+
+.search{
+    border-radius: 20px 20px 0 0 ;
+}

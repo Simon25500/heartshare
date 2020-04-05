@@ -15,7 +15,7 @@ class CardList extends Component {
         if(Array.isArray(this.props.cards)) {
 
             return (
-                <div className="cardlist w-full bg-gray-400 flex-grow overflow-y-scroll h-64" id="scroll">
+                <div className="cardlist w-full bg-gray-200 flex-grow overflow-y-scroll h-64" id="scroll">
                     {this.props.cards.map(card => <Card key={card._id}
                     name={card.name}
                     img={card.association.img_url}

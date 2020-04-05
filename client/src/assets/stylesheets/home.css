@@ -7,14 +7,6 @@ body{
     background-size: 100vw 100vh ;
 }
 
-.search{
-    position: absolute;
-    right: 10px;
-    top: 5px;
-}
-.search:hover{
-    transform: scale(1.15);
-}
 
 .profile{
     transition: ease 0.2s;
