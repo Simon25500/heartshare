@@ -51,7 +51,7 @@ class Map extends Component {
       >
         
         <Marker
-          lat={this.props.cards.lat+0.3}
+          lat={this.props.cards.lat}
           lng={this.props.cards.lng}
           card={this.props.cards}
           name={this.props.cards.name}
