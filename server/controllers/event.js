@@ -1,7 +1,7 @@
 const Event = require('../models/event');
 
 const geocoding = (test,lat,lng) => {
-    if (test.lat <= (lat + 0.6) && test.lat >= (lat - 0.6) && test.lng <= (lng + 0.6) && test.lng >= (lng - 0.6)) {
+    if (test.lat <= (lat + 0.5) && test.lat >= (lat - 0.5) && test.lng <= (lng + 1) && test.lng >= (lng - 1)) {
         return true
     } else {
         return false

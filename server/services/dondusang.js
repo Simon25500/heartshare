@@ -12,8 +12,10 @@ exports.update = () => {
         img_url: "https://resize.aixenprovencetourism.com/img.ashx?w=750&h=750&r=crop&u=http://odms.aixenprovencetourism.com/ODMS/OpenData/Medias/66403/PATIO-1e56c00d-37d1-416b-a39a-8e35e7e8b918_636326765665578750.jpg"
     });
 
+    var now = new Date();
+    current = new Date(`${now.getMonth()+2}/${now.getDate()}/${now.getFullYear()}`);
 
-    fetch('https://api.efs.sante.fr/carto-api/v2/SamplingCollection/SearchInSquare?NorthEastLatitude=56&NorthEastLongitude=13&SouthWestLatitude=36&SouthWestLongitude=-13&MaxDate=05%2F05%2F2020&Limit=100000&UserLatitude=0&UserLongitude=0' , {
+    fetch(`https://api.efs.sante.fr/carto-api/v2/SamplingCollection/SearchInSquare?NorthEastLatitude=56&NorthEastLongitude=13&SouthWestLatitude=36&SouthWestLongitude=-13&MaxDate=${current.toLocaleDateString()}&Limit=100000&UserLatitude=0&UserLongitude=0`, {
         method: 'GET',
         headers: { "Content-Type": "application/json" }
     }).then(response => response.json())

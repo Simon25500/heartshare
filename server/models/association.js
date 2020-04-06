@@ -4,6 +4,7 @@ const mongoose = require('mongoose');
 const associationSchema = mongoose.Schema({
   name: { type: String, required: true },
   type: { type: String },
+  category: { type: String },
   description: { type: String },
   img_url: { type: String },
   location: { type: String},
