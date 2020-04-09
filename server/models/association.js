@@ -10,8 +10,8 @@ const associationSchema = mongoose.Schema({
   location: { type: String},
   lat: { type: Number },
   lng: { type: Number },
-  events: [ {type: mongoose.Schema.Types.ObjectId, ref: 'Event'} ]
-
+  events: [ {type: mongoose.Schema.Types.ObjectId, ref: 'Event'} ],
+  missions: [ {type: mongoose.Schema.Types.ObjectId, ref: 'Mission'} ]
 });
 
 

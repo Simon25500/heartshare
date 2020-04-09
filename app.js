@@ -30,12 +30,15 @@ const userRoutes = require('./server/routes/user');
 const updateRoutes = require('./server/routes/update')
 const associationRoutes = require('./server/routes/association');
 const eventRoutes = require('./server/routes/event')
+const missionRoutes = require('./server/routes/mission')
 
 //routes api
 app.use('/api/auth', userRoutes);
 app.use('/api/update', updateRoutes);
 app.use('/api/association',associationRoutes);
 app.use('/api/event',eventRoutes);
+app.use('/api/mission', missionRoutes);
+
 
 // The "catchall" handler: for any request that doesn't
 // match one above, send back React's index.html file.
