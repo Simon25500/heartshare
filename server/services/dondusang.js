@@ -11,8 +11,8 @@ exports.update = async () => {
         type: "Don du Sang",
         img_url: "https://resize.aixenprovencetourism.com/img.ashx?w=750&h=750&r=crop&u=http://odms.aixenprovencetourism.com/ODMS/OpenData/Medias/66403/PATIO-1e56c00d-37d1-416b-a39a-8e35e7e8b918_636326765665578750.jpg"
     })
-    await association.save();
-    let now = new Date();
+    await association.save().then( async () => {
+        let now = new Date();
     const current = new Date(`${now.getMonth()}/${now.getDate()+15}/${now.getFullYear()}`);
 
     while ((now.getDate() +1) != current.getDate()){
@@ -34,14 +34,16 @@ exports.update = async () => {
                     stop:  (element.morningEndTime === null ? element.afternoonEndTime: element.morningEndTime),
                     association: association._id
                 });
-                event.save()
-                association.events.push(event._id)
+                await event.save()
+                await association.events.push(event._id)
             });
         });
     })
-    now.setDate(now.getDate() + 1)
+    await now.setDate(now.getDate() + 1)
 }
-    association.save()
+   await association.save()
+    });
+    
 }
 
   
