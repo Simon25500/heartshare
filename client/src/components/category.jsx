@@ -4,21 +4,21 @@ import React, { Component } from 'react';
 import Header from '../containers/header';
 import NavBar from '../containers/navbar';
 import HomeBody from '../components/home-body';
-import Welcome from '../components/welcome';
+import CatList from '../containers/cat-list';
 
-class HomePage extends Component {
+class Category extends Component {
 
-    render() {
-        return (
+    render(){
+        return(
             <div>
                 <Header />
                 <NavBar />
-                <div >
-                    <HomeBody component={<Welcome/>} />
-                </div>
+            <div >
+                <HomeBody component={<CatList/>} />
             </div>
+        </div>
         );
     }
 }
 
-export default HomePage;
+export default Category;

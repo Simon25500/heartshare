@@ -1,3 +1,4 @@
+
 export function inscription(body, callback) {
     fetch(`/api/auth/signup`, {
         method:'POST',
@@ -75,5 +76,40 @@ export const setNear = (position) => {
     return {
         type: 'CARD_SET',
         payload:request
+    }
+}
+
+export const setCat = (category) => {
+    let request = ""
+    if (category){
+        request = category
+    } else {
+        request = fetch('/api/category/index',{
+            method: 'GET',
+            headers: {"Content-Type": "application/json"}
+        }).then(reponse => reponse.json())
+        .catch(err => err.json)
+    }
+    return{
+        type: 'CAT_SET',
+        payload: request
+    }
+}
+
+
+export const setAssoc = (category) => {
+    let request = ""
+    if (category){
+        request = category
+    } else {
+        request = fetch('/api/association/index',{
+            method: 'GET',
+            headers: {"Content-Type": "application/json"}
+        }).then(reponse => reponse.json())
+        .catch(err => err.json)
+    }
+    return{
+        type: 'ASSOC_SET',
+        payload: request
     }
 }

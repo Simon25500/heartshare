@@ -8,7 +8,7 @@ class Home extends Component {
                 <div>
                     <img className="mx-auto pt-40" src={logo_home} alt="logo HeartShare" height='400' width='400'/>
                     <div>
-                        <h2 className='text-2xl text-center mt-20 font-bold'>See you soon <span aria-label="emoji-heart" role="img">😍</span></h2>
+                        <h2 className='text-2xl text-center mt-20 font-bold'>See you soon <a href="/home"><span aria-label="emoji-heart" role="img">😍</span></a></h2>
                     </div>
                 </div>
             </div>

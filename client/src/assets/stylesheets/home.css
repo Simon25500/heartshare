@@ -31,7 +31,7 @@ body{
 }
 
 .body{
-    min-height: 552px;
+    max-height: 552px;
 }
 
 #scroll::-webkit-scrollbar-track
@@ -68,4 +68,10 @@ body{
     .cardlist{
         height: 552px !important;
     }
+}
+
+.welcome {
+    background-image: url('../images/logo-heart.svg');
+    background-repeat: no-repeat;
+    background-position: center;
 }

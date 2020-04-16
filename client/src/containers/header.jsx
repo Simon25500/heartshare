@@ -4,6 +4,7 @@ import Profile from './profile'
 import AlgoliaPlaces from 'algolia-places-react';
 import { setNear,cardSet } from '../actions'
 import { bindActionCreators } from 'redux';
+import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import '../assets/stylesheets/search.css'
 
@@ -21,13 +22,14 @@ class Header extends Component {
       this.props.setNear(position);
   }
 
-
     style = "shadow appearance-none border rounded-full w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
 
     render(){
         return(
             <div className="py-5 px-10 flex justify-between items-center">
+              <Link to="/home">
                 <img src={logo_home} alt="logo HeartShare" height='150' width='150'/>
+              </Link>
                     <AlgoliaPlaces
       placeholder='Rechercher par villes'
       className={this.style}

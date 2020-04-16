@@ -4,21 +4,22 @@ import React, { Component } from 'react';
 import Header from '../containers/header';
 import NavBar from '../containers/navbar';
 import HomeBody from '../components/home-body';
-import Welcome from '../components/welcome';
+import AssociationList from '../containers/association-list';
 
-class HomePage extends Component {
+class Category extends Component {
 
-    render() {
-        return (
+
+    render(){
+        return(
             <div>
                 <Header />
                 <NavBar />
-                <div >
-                    <HomeBody component={<Welcome/>} />
-                </div>
+            <div >
+                <HomeBody component={<AssociationList assoc="category" id={this.props.match.params.id} />} />
             </div>
+        </div>
         );
     }
 }
 
-export default HomePage;
+export default Category;
