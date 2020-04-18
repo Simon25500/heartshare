@@ -32,6 +32,7 @@ const associationRoutes = require('./server/routes/association');
 const eventRoutes = require('./server/routes/event');
 const missionRoutes = require('./server/routes/mission');
 const categoryRoutes = require('./server/routes/category');
+const nearRoutes = require('./server/routes/near')
 
 //routes api
 app.use('/api/auth', userRoutes);
@@ -40,6 +41,7 @@ app.use('/api/association',associationRoutes);
 app.use('/api/event',eventRoutes);
 app.use('/api/mission', missionRoutes);
 app.use('/api/category', categoryRoutes);
+app.use('/api/near', nearRoutes);
 
 
 // The "catchall" handler: for any request that doesn't

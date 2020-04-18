@@ -1,23 +1,23 @@
 import React, { Component } from 'react';
 
+//import Component
 import Header from '../containers/header';
 import NavBar from '../containers/navbar';
 import HomeBody from '../components/home-body';
-import AssociationShow from '../containers/association-show';
+import AssociationList from '../containers/association-list';
 
-
-class Association extends Component {
-
+class Associations extends Component {
     render(){
         return(
             <div>
                 <Header />
                 <NavBar />
             <div >
-                <HomeBody comp="show" component={<AssociationShow id={this.props.match.params.id}/>} />
+                <HomeBody component={<AssociationList/>} />
             </div>
         </div>
         );
     }
 }
-export default Association;
+
+export default Associations;

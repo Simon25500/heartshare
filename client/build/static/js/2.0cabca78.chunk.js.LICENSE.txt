@@ -12,6 +12,12 @@ object-assign
     * @version   v4.2.5+7f2b526d
     */
 
+/*!
+  * $script.js JS loader & dependency manager
+  * https://github.com/ded/script.js
+  * (c) Dustin Diaz 2014 | License MIT
+  */
+
 /**
  * @license
  * Lodash <https://lodash.com/>

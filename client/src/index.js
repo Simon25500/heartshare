@@ -21,6 +21,9 @@ import FormInscription from './containers/form-inscription';
 import FormConnect from './containers/form-connect';
 import Category from './components/category';
 import CategoryShow from './components/category-show'
+import Associations from './components/associations';
+import Association from './components/association';
+import Near from './components/near';
 
 //import reducer
 import { reducer as formReducer } from 'redux-form';
@@ -28,16 +31,20 @@ import userReducer from './reducers/user';
 import cardReducer from './reducers/card';
 import categoryReducer from './reducers/category';
 import associationReducer from './reducers/association';
-import Association from './components/association';
-
+import activeAssocReducer from './reducers/active-assoc';
+import activeCardReducer from './reducers/active-card';
+import positionReducer from './reducers/position'
 
 const reducers = combineReducers({
   form: formReducer,
   user: userReducer,
   cards: cardReducer,
+  activeCard: activeCardReducer,
   category: categoryReducer,
   association: associationReducer,
-  routing: routerReducer
+  routing: routerReducer,
+  activeAssoc: activeAssocReducer,
+  position: positionReducer
 });
 
 const history = createBrowserHistory();
@@ -53,7 +60,9 @@ ReactDOM.render(
         <Route path="/inscription" exact component={FormInscription} />
         <Route path="/category/index" exact component={Category} />
         <Route path="/category/:id" exact component={CategoryShow} />
-        <Route path="/associations/index" exact component={Association}/>
+        <Route path="/associations/index" exact component={Associations}/>
+        <Route path="/associations/:id" exact component={Association}/>
+        <Route path="/near/lat=:lat&lng=:lng" exact component={Near}/>
       </Switch>
     </Router>
   </Provider>,
@@ -63,4 +72,4 @@ ReactDOM.render(
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
 // Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
+serviceWorker.register();

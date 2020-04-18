@@ -21,12 +21,18 @@ class AssociationList extends Component {
     }
 
     render(){
-        return(
-                <div className="w-full body overflow-y-scroll lg:grid  lg:grid-cols-2 " id="scroll">
-                    {this.props.association.map(assoc => <AssociationCard key={assoc._id} id={assoc._id} name={assoc.name} img={assoc.img_url} cat={assoc.category.name}/> )}
+        if(this.props.association.length !== 0){
+            return(
+                <div className="w-full body overflow-y-scroll lg:grid shadow lg:grid-cols-2 " id="scroll">
+                    {this.props.association.map(assoc => <AssociationCard list="list" key={assoc._id} card={assoc} comp="show" /> )}
                 </div>
-            
-        );
+            );
+        } else {
+            return(
+                <div></div>
+            );
+        }
+        
     }
 }
 

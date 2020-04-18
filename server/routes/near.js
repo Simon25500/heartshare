@@ -1,8 +1,8 @@
 const express = require('express');
 const router = express.Router();
 
-const eventCtrl = require('../controllers/event');
+const nearCtrl = require('../controllers/near');
 
-router.get('/index', eventCtrl.index);
+router.post('/index',nearCtrl.index);
 
 module.exports = router;

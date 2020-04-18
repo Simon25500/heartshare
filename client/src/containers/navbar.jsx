@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { setNear,cardSet, setCat } from '../actions';
-import { Link } from 'react-router-dom';
+import { setNear, setAssoc, setPosition } from '../actions';
+import { Link, withRouter } from 'react-router-dom';
 
 
 class NavBar extends Component {
@@ -32,26 +32,40 @@ class NavBar extends Component {
     }
 
     onClickNear = () => {
-        this.props.setNear(this.position);
+        this.props.setNear(this.position).then(()=> {
+            this.props.setPosition({center:this.position,zoom:8})
+            this.props.history.push(`/near/lat=${this.position.lat}&lng=${this.position.lng}`)
+        })
 
+    }
+
+    onClickAssoc = () => {
+        this.props.setAssoc().then(()=> {
+            this.props.setPosition({ center: {lat: 46.22,lng: 2.21 },zoom: 5})
+            this.props.history.push('/associations/index')
+        })
+    }
+
+    onClickCat = () => {
+        this.props.setPosition({ center: {lat: 46.22,lng: 2.21 },zoom: 5})
     }
 
     render(){
         return(
             <div className="flex justify-between mx-8 ">
-                <div onClick={this.onClickNear} className="cursor-pointer choice py-2 w-1/4 bg-gray-300 rounded-md text-center">
+                <div onClick={this.onClickNear} className="cursor-pointer shadow choice py-2 w-1/4 bg-gray-300 rounded-md text-center">
                     <p className="font-bold">Près de chez vous</p>
                 </div>
-                <Link  to="/category/index" className="cursor-pointer choice py-2 w-1/4 bg-gray-300 rounded-md text-center">
+                <Link  to="/category/index" onClick={this.onClickCat} className="cursor-pointer shadow choice py-2 w-1/4 bg-gray-300 rounded-md text-center">
                     <div >
                         <p className="font-bold">Category</p>
                     </div>
                 </Link>
-                <Link to="/associations/index" className="cursor-pointer choice py-2 w-1/4 bg-gray-300 rounded-md text-center">
+                <div to="/associations/index" onClick={this.onClickAssoc} className="cursor-pointer shadow choice py-2 w-1/4 bg-gray-300 rounded-md text-center">
                     <div  >
                         <p className="font-bold">Toutes les associations</p>
                     </div>
-                </Link>
+                </div>
             </div>
         );
     }
@@ -62,8 +76,8 @@ const mapDispatchToProps = (dispatch) => {
     return bindActionCreators(
         {
             setNear: setNear,
-            cardSet: cardSet,
-            setCat: setCat
+            setAssoc: setAssoc,
+            setPosition: setPosition
         },
         dispatch
     )
@@ -71,4 +85,4 @@ const mapDispatchToProps = (dispatch) => {
 
 
 
-export default connect(null, mapDispatchToProps)(NavBar);
+export default withRouter(connect(null, mapDispatchToProps)(NavBar));

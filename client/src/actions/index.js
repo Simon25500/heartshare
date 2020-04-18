@@ -45,12 +45,19 @@ export const isLog =  () => {
             };
 }
 
-export const cardSet = () => {
-    const request = fetch('/api/event/index', {
-        method: 'GET',
-        headers: {"Content-Type": "application/json"}
-    }).then(reponse => reponse.json())
-    .catch(err => err.json())
+export const cardSet = (card) => {
+    let request;
+
+    if (!card){
+        request = fetch('/api/event/index', {
+            method: 'GET',
+            headers: {"Content-Type": "application/json"}
+        }).then(reponse => reponse.json())
+        .catch(err => err.json())
+    } else {
+        request = card;
+    }
+
 
     return {
         type: 'CARD_SET',
@@ -60,19 +67,19 @@ export const cardSet = () => {
 
 export const cardActive = (card) => {
     return {
-        type: 'CARD_SET',
+        type: 'ACTIV_CARD_SET',
         payload: card
     };
 }
 
 export const setNear = (position) => {
-    const request = fetch('/api/event/near', {
+    const request = fetch('/api/near/index', {
         method: 'POST',
         headers: {"Content-Type": "application/json"},
         body: JSON.stringify(position)
     }).then(reponse => reponse.json())
     .catch(err => err.json)
-    console.log(position)
+
     return {
         type: 'CARD_SET',
         payload:request
@@ -98,18 +105,39 @@ export const setCat = (category) => {
 
 
 export const setAssoc = (category) => {
-    let request = ""
-    if (category){
-        request = category
-    } else {
-        request = fetch('/api/association/index',{
+
+    const request = fetch('/api/association/index',{
             method: 'GET',
             headers: {"Content-Type": "application/json"}
         }).then(reponse => reponse.json())
         .catch(err => err.json)
-    }
+    
     return{
         type: 'ASSOC_SET',
         payload: request
+    }
+}
+
+export const assocShow = (id) => {
+
+    const request = fetch(`/api/association/${id}`, {
+        method: 'GET',
+        headers: {"Content-Type": "application/json"}
+    }).then(reponse => reponse.json())
+    .catch(err => err.json)
+    
+    return {
+        type : 'ACTIV_ASSOC_SET',
+        payload: request
+    }
+
+
+}
+
+export const setPosition = (position) => {
+
+    return {
+        type: 'SET_POSITION',
+        payload: position
     }
 }

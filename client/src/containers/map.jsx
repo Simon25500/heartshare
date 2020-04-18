@@ -4,29 +4,19 @@ import Marker from '../components/marker';
 import {connect} from 'react-redux';
 
 class Map extends Component {
-    static defaultProps = {
-        center: {
-          lat: 46.22,
-          lng: 2.21
-        },
-        zoom: 5
-      };
-
-      
- 
 
     render(){
       if (Array.isArray(this.props.cards)) {
         return( 
-            <div   className=" bg-gray-900 h-full" >
+            <div   className=" bg-gray-900 shadow mb-10 cardlist h-64 lg:bodyfull lg:m-0 " >
                 <GoogleMapReact
           bootstrapURLKeys={{ key: "AIzaSyBbjMtABvfaw7Cq_un0llwAg8derao9yUk" }}
-          defaultCenter={this.props.center}
-          zoom={this.props.zoom}
+          center={this.props.position.center}
+          zoom={this.props.position.zoom}
         >
           
-          {this.props.cards.map(card => <Marker
-            key={card._id}
+          {this.props.cards.map((card,i) => <Marker
+            key={i}
             lat={card.lat}
             lng={card.lng}
             card={card}
@@ -67,7 +57,8 @@ class Map extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    cards: state.cards
+    cards: state.cards,
+    position: state.position
   }
 }
 

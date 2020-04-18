@@ -2,7 +2,7 @@
   "name": "heartshare",
   "version": "1.0.0",
   "engines": {
-    "node": "10.19.0"
+    "node": "10.20.1"
   },
   "main": "server.js",
   "repository": "git@github.com:Simon25500/heartshare.git",
