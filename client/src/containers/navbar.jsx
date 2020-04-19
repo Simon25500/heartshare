@@ -41,13 +41,13 @@ class NavBar extends Component {
 
     onClickAssoc = () => {
         this.props.setAssoc().then(()=> {
-            this.props.setPosition({ center: {lat: 46.22,lng: 2.21 },zoom: 5})
+            this.props.setPosition({ center: {lat: 46.22,lng: 2.21 },zoom: 5, comp:'list'})
             this.props.history.push('/associations/index')
         })
     }
 
     onClickCat = () => {
-        this.props.setPosition({ center: {lat: 46.22,lng: 2.21 },zoom: 5})
+        this.props.setPosition({ center: {lat: 46.22,lng: 2.21 },zoom: 5, comp:'list'})
     }
 
     render(){

@@ -5,13 +5,15 @@ import { setNear } from '../actions'
 import Map from './map';
 import Event from './event'
 import CardList from './card-list';
+import CardShow from './card-show';
 
 class Body extends Component {
 
     componentDidMount() { 
-        console.log(this.props.position)
-        this.props.setNear(this.props.position)
-    }
+        if (!this.props.comp){
+            this.props.setNear(this.props.position)
+        }
+        }
 
 
     render(){
@@ -24,7 +26,7 @@ class Body extends Component {
                     </div>
                 </div>
                 <div className="body ml-10 grid grid-cols-1 gap-10 w-full lg:grid-cols-2">
-                    <CardList  />
+                    {this.props.comp === 'show' ? <CardShow id={this.props.id} /> : <CardList  />}
                     <Map />
                 </div>
             </div>

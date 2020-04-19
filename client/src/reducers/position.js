@@ -1,4 +1,4 @@
-const positionReducer = (state = { center: {lat: 46.22,lng: 2.21 },zoom: 5},action) => {
+const positionReducer = (state = { center: {lat: 46.22,lng: 2.21 },zoom: 5, comp: 'list'},action) => {
 
 
     switch (action.type) {

@@ -66,9 +66,17 @@ export const cardSet = (card) => {
 }
 
 export const cardActive = (card) => {
+
+    const request = fetch(`/api/event/${card}`,{
+        method: 'GET',
+        headers: {"Content-Type": "application/json"}
+    }).then(reponse => reponse.json())
+    .catch(err => console.log(err))
+
+
     return {
         type: 'ACTIV_CARD_SET',
-        payload: card
+        payload: request
     };
 }
 

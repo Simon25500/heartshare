@@ -24,6 +24,7 @@ import CategoryShow from './components/category-show'
 import Associations from './components/associations';
 import Association from './components/association';
 import Near from './components/near';
+import cardShow from './components/card-show';
 
 //import reducer
 import { reducer as formReducer } from 'redux-form';
@@ -63,6 +64,7 @@ ReactDOM.render(
         <Route path="/associations/index" exact component={Associations}/>
         <Route path="/associations/:id" exact component={Association}/>
         <Route path="/near/lat=:lat&lng=:lng" exact component={Near}/>
+        <Route path="/card/:id" exact component={cardShow} />
       </Switch>
     </Router>
   </Provider>,
