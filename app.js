@@ -4,6 +4,8 @@ const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const sslRedirect = require('heroku-ssl-redirect');
 const app = express();
+const fs = require('fs')
+const https = require('https')
 
 
 //redirect sll 
@@ -54,6 +56,12 @@ app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname,'/client/build/index.html'));
 });
 
+const options = {
+  key: fs.readFileSync('./key.pem'),
+  cert: fs.readFileSync('./cert.pem')
+}
 
+// const server = http.createServer(app);
+https.createServer(options,app).listen(3000)
 
 module.exports = app;
