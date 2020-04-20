@@ -2,8 +2,12 @@ const express = require('express');
 const path = require('path');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
+const sslRedirect = require('heroku-ssl-redirect');
 const app = express();
 
+
+//redirect sll 
+app.use(sslRedirect());
 
 // Serve static files from the React app
 app.use(express.static(path.join(__dirname, 'client/build')));
