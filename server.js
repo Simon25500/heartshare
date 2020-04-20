@@ -36,7 +36,12 @@ const errorHandler = error => {
   }
 };
 
-const server = http.createServer(app);
+const options = {
+  key: fs.readFileSync('./key.pem'),
+  cert: fs.readFileSync('./cert.pem')
+};
+
+const server = http.createServer(options ,app);
 
 server.on('error', errorHandler);
 server.on('listening', () => {
