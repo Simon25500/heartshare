@@ -1,5 +1,4 @@
 const http = require('http');
-const https = require('https');
 const app = require('./app');
 const fs = require('fs');
 
@@ -37,13 +36,7 @@ const errorHandler = error => {
   }
 };
 
-const options = {
-  key: fs.readFileSync('./key.pem'),
-  cert: fs.readFileSync('./cert.pem')
-}
-
-// const server = http.createServer(app);
-const server = https.createServer(options,app)
+const server = http.createServer(app);
 
 server.on('error', errorHandler);
 server.on('listening', () => {

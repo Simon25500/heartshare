@@ -24,6 +24,6 @@
     "request": "^2.88.2"
   },
   "scripts": {
-    "start": "node app.js"
+    "start": "node server.js"
   }
 }

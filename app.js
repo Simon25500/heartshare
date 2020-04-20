@@ -2,13 +2,11 @@ const express = require('express');
 const path = require('path');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
-const sslRedirect = require('heroku-ssl-redirect');
 const app = express();
-const fs = require('fs')
-const https = require('https')
+const sslRedirect = require('heroku-ssl-redirect');
 
 
-//redirect sll 
+// enable ssl redirect
 app.use(sslRedirect());
 
 // Serve static files from the React app
@@ -56,12 +54,6 @@ app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname,'/client/build/index.html'));
 });
 
-const options = {
-  key: fs.readFileSync('./key.pem'),
-  cert: fs.readFileSync('./cert.pem')
-}
 
-// const server = http.createServer(app);
-https.createServer(options,app).listen(process.env.PORT || 5000)
 
 module.exports = app;
