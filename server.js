@@ -37,8 +37,8 @@ const errorHandler = error => {
 };
 
 const options = {
-  key: fs.readFileSync('./key.pem'),
-  cert: fs.readFileSync('./cert.pem')
+  key: fs.readFileSync('./server.key'),
+  cert: fs.readFileSync('./server.cert')
 };
 
 const server = http.createServer(options ,app);
