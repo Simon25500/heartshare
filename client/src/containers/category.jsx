@@ -15,7 +15,7 @@ class Category extends Component {
     render(){
         
         return(
-                <Link onClick={this.onClick} to={`/category/${this.props.cat._id}`} className="bg-gray-300 shadow-sm flex items-center justify-center h-20 rounded">
+                <Link onClick={this.onClick} to={`/category/${this.props.cat._id}`} className="bg-gray-300 shadow-sm text-center flex items-center justify-center h-20 rounded">
                     <p className="text-lg font-bold">{this.props.name}</p>
                 </Link>
             

@@ -19,13 +19,13 @@ class Body extends Component {
     render(){
         
         return(
-            <div className=" mt-20 md:mx-8 flex justify-between">
+            <div className="mt-5 md:mt-20 mx-2 md:mx-8 flex justify-between">
                 <div className="hidden md:block">
                     <Event />
                     <div className="actu shadow mt-10 w-64 h-64">
                     </div>
                 </div>
-                <div className="body ml-10 grid grid-cols-1 gap-10 w-full lg:grid-cols-2">
+                <div className="body md:ml-10 grid grid-cols-1 gap-10 w-full lg:grid-cols-2">
                     {this.props.comp === 'show' ? <CardShow id={this.props.id} comp='show' /> : <CardList  />}
                     <Map />
                 </div>

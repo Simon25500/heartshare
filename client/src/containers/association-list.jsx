@@ -23,7 +23,7 @@ class AssociationList extends Component {
     render(){
         if(this.props.association.length !== 0){
             return(
-                <div className="w-full body overflow-y-scroll lg:grid shadow lg:grid-cols-2 " id="scroll">
+                <div className="h-64 sm:h-full w-full body overflow-y-scroll lg:grid shadow lg:grid-cols-2 " id="scroll">
                     {this.props.association.map(assoc => <AssociationCard list="list" key={assoc._id} card={assoc} comp="show" /> )}
                 </div>
             );
