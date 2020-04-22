@@ -18,6 +18,7 @@ class AssociationShow extends Component{
                 this.props.cardSet(this.props.activAssoc.events)                
             }
         })
+        
     }
 
     render(){
