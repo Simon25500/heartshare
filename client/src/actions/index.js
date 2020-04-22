@@ -113,13 +113,15 @@ export const setCat = (category) => {
 
 
 export const setAssoc = (category) => {
+    let request = category
 
-    const request = fetch('/api/association/index',{
+    if (!category) {
+        request = fetch('/api/association/index',{
             method: 'GET',
             headers: {"Content-Type": "application/json"}
         }).then(reponse => reponse.json())
         .catch(err => err.json)
-    
+    }
     return{
         type: 'ASSOC_SET',
         payload: request

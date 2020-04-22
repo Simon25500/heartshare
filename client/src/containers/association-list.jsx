@@ -8,7 +8,7 @@ class AssociationList extends Component {
 
 
     componentDidMount(){
-        if (!this.props.assoc){
+        if (this.props.assoc !== 'category'){
             this.props.setAssoc()
         } else {
             this.props.setCat().then(() => {
