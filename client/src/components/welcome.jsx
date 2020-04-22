@@ -11,7 +11,7 @@ class Welcome extends Component {
                          et association pour vous aidez à trouver
                           une bonne action qui vous correspond.
                     </p >
-                    <p className="mt-20 text-lg text-center">On a besoin d'aide près de chez vous, cliquez <a href="/home" className="font-bold">ici</a> ou cherchez votre ville dans la barre de recherche.</p>
+                    <p className="mt-20 text-lg text-center">On a besoin d'aide près de chez vous, cherchez votre ville dans la barre de recherche.</p>
             </div>
 
         );

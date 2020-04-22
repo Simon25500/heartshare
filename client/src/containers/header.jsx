@@ -25,12 +25,12 @@ class Header extends Component {
       });
   }
 
-    style = "shadow appearance-none border rounded-full w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+    style = "hidden sm:block shadow appearance-none border rounded-full w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
 
     render(){
         return(
             <div className="py-5 px-10 flex justify-between items-center">
-              <Link to="/home">
+              <Link to="/">
                 <img src={logo_home} alt="logo HeartShare" height='150' width='150'/>
               </Link>
                     <AlgoliaPlaces
@@ -45,9 +45,6 @@ class Header extends Component {
         type: 'city',
         // Other options from https://community.algolia.com/places/documentation.html#options
       }}
-
-      
-
 
       onChange={({ query, rawAnswer, suggestion, suggestionIndex }) => {
         console.log(suggestion)
@@ -68,7 +65,11 @@ class Header extends Component {
         console.log('Fired when we could not make the request to Algolia Places servers for any reason but reaching your rate limit.')}
     />
                 <Profile />
-            </div>
+              </div>                
+            
+              
+            
+                  
         );
     }
 }

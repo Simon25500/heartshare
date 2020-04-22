@@ -15,7 +15,6 @@ import { routerReducer, routerMiddleware } from 'react-router-redux';
 import './assets/stylesheets/application.scss';
 
 //import component
-import Home from './components/home';
 import HomePage from './components/home-page';
 import FormInscription from './containers/form-inscription';
 import FormConnect from './containers/form-connect';
@@ -55,8 +54,7 @@ ReactDOM.render(
   <Provider store={createStore(reducers, {}, middleware)} >
     <Router history={history}>
       <Switch>
-        <Route path="/" exact component={Home} />
-        <Route path="/home" exact component={HomePage} />
+        <Route path="/" exact component={HomePage} />
         <Route path="/connexion" exact component={FormConnect} />
         <Route path="/inscription" exact component={FormInscription} />
         <Route path="/category/index" exact component={Category} />

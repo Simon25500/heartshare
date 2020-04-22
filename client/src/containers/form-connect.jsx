@@ -9,7 +9,7 @@ class FormConnect extends Component {
 
     onSubmit = (values) => {
         this.props.connexion(values, (post) => {
-            this.props.history.push('/home'); // Navigate after submit
+            this.props.history.push('/'); // Navigate after submit
             return post;
         });
     }
