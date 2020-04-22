@@ -14,7 +14,7 @@ class CatList extends Component {
     render(){
         
         return(
-            <div className="h-full body p-5 grid grid-cols-2 gap-2 overflow-y-scroll" id="scroll">
+            <div className="h-full w-full body p-5 grid grid-cols-2 gap-2 overflow-y-scroll" id="scroll">
                 {this.props.category.map(cat => <Category key={cat._id} name={cat.name} cat={cat} />)}
             </div>
         );

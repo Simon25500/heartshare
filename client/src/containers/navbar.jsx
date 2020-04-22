@@ -53,18 +53,14 @@ class NavBar extends Component {
     render(){
         return(
             <div className="flex justify-between mx-8 ">
-                <div onClick={this.onClickNear} className="cursor-pointer shadow choice py-2 w-1/4 bg-gray-300 rounded-md text-center">
-                    <p className="font-bold">Près de chez vous</p>
+                <div onClick={this.onClickNear} className="cursor-pointer shadow choice py-2  w-1/4 bg-gray-300 rounded-md text-center flex justify-center items-center">
+                    <p className="font-bold text-xs md:text-sm">Près de chez vous</p>
                 </div>
-                <Link  to="/category/index" onClick={this.onClickCat} className="cursor-pointer shadow choice py-2 w-1/4 bg-gray-300 rounded-md text-center">
-                    <div >
-                        <p className="font-bold">Category</p>
-                    </div>
+                <Link  to="/category/index" onClick={this.onClickCat} className="cursor-pointer shadow choice py-2 w-1/4 bg-gray-300 rounded-md text-center flex justify-center items-center">
+                        <p className="font-bold text-xs md:text-sm">Category</p>
                 </Link>
-                <div to="/associations/index" onClick={this.onClickAssoc} className="cursor-pointer shadow choice py-2 w-1/4 bg-gray-300 rounded-md text-center">
-                    <div  >
-                        <p className="font-bold">Toutes les associations</p>
-                    </div>
+                <div to="/associations/index" onClick={this.onClickAssoc} className="cursor-pointer shadow choice py-2 w-1/4 bg-gray-300 rounded-md text-center flex justify-center items-center">
+                        <p className="font-bold text-xs md:text-sm">Toutes les associations</p>
                 </div>
             </div>
         );

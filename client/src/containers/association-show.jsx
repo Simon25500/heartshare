@@ -24,7 +24,7 @@ class AssociationShow extends Component{
         return(
               <div className="grid grid-cols-1 gap-4 lg:grid-cols-3 ">
                 <AssociationCard card={this.props.activAssoc}/>
-                <Cardlist />
+                <Cardlist comp='show' />
                 <Map />
               </div>  
         );

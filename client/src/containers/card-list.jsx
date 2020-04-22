@@ -10,7 +10,7 @@ class CardList extends Component {
     render() {
         return (
             <div className="cardlist shadow body w-full bg-gray-200 flex-grow overflow-y-scroll h-64 " id="scroll">
-                {this.props.cards.map((card,i) => <Card key={i} card={card} assoc={this.props.association.img_url} comp='show' />)}
+                {this.props.cards.map((card,i) => <Card key={i} card={card} assoc={this.props.association.img_url} comp={this.props.comp} />)}
             </div>            
         );
     }
