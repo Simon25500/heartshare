@@ -15,7 +15,7 @@ class ProfileMenu extends Component {
     render() {
         if (this.props.user === null || this.props.user.userId === null){
         return (
-            <div className="profilemenu absolute bg-gray-400">
+            <div className="profilemenu absolute bg-gray-400 z-20">
                 <Link to="/connexion">
                     <div className="p-5 border">
                         <p className="block profile text-center">Connexion</p>

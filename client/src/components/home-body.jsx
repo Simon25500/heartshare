@@ -13,7 +13,7 @@ class HomeBody extends Component {
             );
         } else {
             return(
-                <div className=" mt-5 md:mt-20 mx-2 md-mx-8 flex justify-between">
+                <div className=" mt-5 md:mt-20 mx-2 md:mx-8 flex justify-between">
                     <div className="hidden md:block">
                         <Event />
                         <div className="actu shadow mt-10 w-64 h-64">

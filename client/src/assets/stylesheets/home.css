@@ -67,6 +67,12 @@ body{
     right: 0px;
 }
 
+.welcome {
+    background-image: url('../images/logo-heart.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 582px;
+}
 @media (min-width: 1024px) {
 
     .cardlist{
@@ -74,8 +80,10 @@ body{
     }
 }
 
-.welcome {
-    background-image: url('../images/logo-heart.svg');
-    background-repeat: no-repeat;
-    background-position: center;
+
+@media (max-width: 500px ) {
+
+    .welcome {
+        height: auto;
+    }
 }

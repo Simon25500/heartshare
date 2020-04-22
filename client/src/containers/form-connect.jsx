@@ -16,12 +16,12 @@ class FormConnect extends Component {
 
     render() {
         return (
-            <div>
+            <div className="p-5">
                 <img className="mx-auto pt-5" src={logo_home} alt="logo HeartShare" height='400' width='400'/>
-                <div className='mt- mx-auto p-5 bg-red-600 w-1/2 max-w-screen-md rounded-lg '>
+                <div className='mt- mx-auto p-5 bg-red-600 w-full md:w-1/2 max-w-screen-md rounded-lg '>
                     <p className="text-xl font-bold  text-center">Connexion</p>
-                    <div className=" w-3/4 max-w-lg mx-auto">
-                        <form onSubmit={this.props.handleSubmit(this.onSubmit)} className=" px-8 pt-6 pb-8 mb-4">
+                    <div className=" w-full sm:w-3/4 max-w-lg mx-auto">
+                        <form onSubmit={this.props.handleSubmit(this.onSubmit)} className=" px-8 pt-6 pb-8 mb-2">
                             <div className="mb-4">
                             <label className="block  text-sm font-bold mb-2" htmlFor="email" >
                                 Email
@@ -47,7 +47,7 @@ class FormConnect extends Component {
                             />
                             </div>
                             <div className="flex items-center justify-between">
-                            <button className="bg-white hover:bg-red-200 text-red-600 font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"   type="submit"
+                            <button className="bg-white hover:bg-red-200 text-red-600 font-bold py-2 px-1 md:px-4 rounded focus:outline-none focus:shadow-outline"   type="submit"
                             disabled={this.props.pristine || this.props.submitting}>
                                 Connexion
                             </button>

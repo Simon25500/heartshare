@@ -17,11 +17,11 @@ class FormInscription extends Component {
 
     render() {
         return (
-            <div>
+            <div className="p-5">
                 <img className="mx-auto pt-5" src={logo_home} alt="logo HeartShare" height='400' width='400'/>
-                <div className='mt- mx-auto p-5 bg-red-600 w-1/2 max-w-screen-md rounded-lg '>
+                <div className=' mx-auto p-5 bg-red-600 w-full md:w-1/2 max-w-screen-md rounded-lg '>
                     <p className="text-xl font-bold  text-center">Inscription</p>
-                    <div className=" w-3/4 max-w-lg mx-auto">
+                    <div className=" w-full sm:w-3/4 max-w-lg mx-auto">
                         <form onSubmit={this.props.handleSubmit(this.onSubmit)} className=" px-8 pt-6 pb-8 mb-4">
                             <div className="mb-4">
                             <label className="block  text-sm font-bold mb-2" htmlFor="email" >
