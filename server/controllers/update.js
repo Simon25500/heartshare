@@ -33,6 +33,7 @@ schedule.scheduleJob('* * 0 * * *', async () => {
 
 
   exports.update = (req,res,next) => {
+
     update().then(() => {
       res.status(200).json("up to date");
     })

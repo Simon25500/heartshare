@@ -12,7 +12,7 @@ app.use(sslRedirect());
 // Serve static files from the React app
 app.use(express.static(path.join(__dirname, 'client/build')));
 
-//connecte to db
+//connect to db
 mongoose.connect('mongodb+srv://Simon25500:7wzpfrc25500@cluster0-7cujc.mongodb.net/test?retryWrites=true&w=majority',
   { useNewUrlParser: true,
     useUnifiedTopology: true })
