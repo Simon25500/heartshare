@@ -18,6 +18,7 @@ class Association extends Component {
             </div>
         </div>
         );
+
     }
 }
 export default Association;

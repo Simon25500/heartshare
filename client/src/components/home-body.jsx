@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Event from '../containers/event';
 class HomeBody extends Component {
 
     render(){
@@ -13,13 +12,9 @@ class HomeBody extends Component {
             );
         } else {
             return(
-                <div className=" mt-5 md:mt-20 mx-2 md:mx-8 flex justify-between">
-                    <div className="hidden md:block">
-                        <Event />
-                        <div className="actu shadow mt-10 w-64 h-64">
-                        </div>
-                    </div>
-                    <div className="flex-grow md:ml-10 flex flex-col lg:flex-row bg-gray-400">
+                <div className="w-screen mt-5 md:mt-20 mx-2 md:mx-8 flex justify-between">
+
+                    <div className="mx-auto md:w-2/3  flex flex-col lg:flex-row bg-gray-400">
                         {this.props.component}
                     </div>
                 </div>
